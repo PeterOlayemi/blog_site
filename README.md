@@ -40,7 +40,11 @@ Welcome to Affyns's Blog Site, a fully-fledged online blog site designed with a 
 ### 5: Run the development server:
     python manage.py runserver
 
-### 6: Access the application at http://localhost:8000
+### 6: Access the admin panel
+At http://localhost:8000/admin then add your contact and team information to the database. This can also be done through python shell.
+
+### 7: Access the application
+At http://localhost:8000
 
 ## Contributing
 Feel free to contribute by submitting issues or pull requests.
