@@ -1,8 +1,7 @@
-from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import ListView, TemplateView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, TemplateView, CreateView, DeleteView, UpdateView
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
@@ -90,7 +89,7 @@ class ArticleCategoryList(ListView):
         context['paginator'] = paginator
         context['search_query'] = self.request.GET.get('q', '')
 
-        recent_posts = queryset.filter(status='PUBLISH', category__name=category).order_by('-date_added')[:5]
+        recent_posts = Article.objects.filter(status='PUBLISH', category__name=category).order_by('-date_added')[:5]
         context['recent_posts'] = recent_posts
         
         other_categories = Category.objects.exclude(name=category).order_by(Lower('name'))

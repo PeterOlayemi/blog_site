@@ -43,10 +43,6 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.writer + ' comments - ' + self.content
-    
-    def number_of_replies(self):
-        replies = Comment.objects.filter(parent=self)
-        return replies.count()
 
     @property
     def children(self):
